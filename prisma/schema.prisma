@@ -1,0 +1,43 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = "mysql://root:12481632@localhost:3306/pi2"
+}
+
+model admin {
+  ID    Int    @id @default(autoincrement())
+  Nome  String @db.VarChar(200)
+  Email String @db.VarChar(200)
+  Senha String @db.VarChar(200)
+}
+
+model jornalista {
+  ID        Int         @id @default(autoincrement())
+  Nome      String      @db.VarChar(200)
+  Email     String      @db.VarChar(200)
+  Senha     String      @db.VarChar(200)
+  postagens postagens[]
+}
+
+model postagens {
+  ID            Int         @id @default(autoincrement())
+  Titulo        String      @db.VarChar(100)
+  Texto         String      @db.VarChar(10000)
+  Img           Bytes       @db.Blob
+  Data          DateTime    @db.Date
+  Visibilidade  Boolean?    @db.Bit(1)
+  fk_Usuario_ID Int?
+  jornalista    jornalista? @relation(fields: [fk_Usuario_ID], references: [ID], onDelete: Cascade, onUpdate: NoAction, map: "FK_Postagens_2")
+
+  @@index([fk_Usuario_ID], map: "FK_Postagens_2")
+}
+
+model usuario {
+  ID    Int    @id @default(autoincrement())
+  Nome  String @db.VarChar(200)
+  Email String @unique(map: "Email_UNIQUE") @db.VarChar(200)
+  Senha String @db.VarChar(200)
+}
