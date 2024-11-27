@@ -26,13 +26,13 @@ model postagens {
   ID            Int         @id @default(autoincrement())
   Titulo        String      @db.VarChar(100)
   Texto         String      @db.VarChar(10000)
-  Img           Bytes       @db.Blob
+  Img           Bytes       @db.ByteA
   Data          DateTime    @db.Date
-  Visibilidade  Boolean?    @db.Bit(1)
+  Visibilidade  Boolean?
   fk_Usuario_ID Int?
   jornalista    jornalista? @relation(fields: [fk_Usuario_ID], references: [ID], onDelete: Cascade, onUpdate: NoAction, map: "FK_Postagens_2")
 
-  @@index([fk_Usuario_ID], map: "FK_Postagens_2")
+  @@index([fk_Usuario_ID], map: "FK_Postagens_Usuario_ID")
 }
 
 model usuario {
