@@ -4,7 +4,7 @@ import cors from 'cors';
 import routes from './routes';
 
 const app = express();// Criando uma nova aplicação Express
-const PORT = 3000 // Define a porta do servidor
+const PORT = 3001 // Define a porta do servidor
 app.use(express.json()) // Habilita o uso de JSON nas requisições
 app.use(cors());// Permitindo todas as solicitações CORS
 

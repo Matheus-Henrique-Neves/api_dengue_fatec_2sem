@@ -26,10 +26,10 @@ model postagens {
   ID            Int         @id @default(autoincrement())
   Titulo        String      @db.VarChar(100)
   Texto         String      @db.VarChar(10000)
-  Img           Bytes       @db.ByteA
-  Data          DateTime    @db.Date
+  Img           String      @db.VarChar(10000)
   Visibilidade  Boolean?
   fk_Usuario_ID Int?
+  Data          DateTime    @db.Date
   jornalista    jornalista? @relation(fields: [fk_Usuario_ID], references: [ID], onDelete: Cascade, onUpdate: NoAction, map: "FK_Postagens_2")
 
   @@index([fk_Usuario_ID], map: "FK_Postagens_Usuario_ID")

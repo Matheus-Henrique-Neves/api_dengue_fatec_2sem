@@ -10,9 +10,8 @@ export class CreatePostagemDto {
   Texto!: string
 
   @IsNotEmpty()
-  Img!: Buffer
+  Img!: string
 
-  @IsDate()
   @IsNotEmpty()
   Data!: Date
 
@@ -37,10 +36,9 @@ export class UpdatePostagemDto {
 
   @IsOptional()
   @IsNotEmpty()
-  Img?: Buffer
-
+  Img?: string
+  
   @IsOptional()
-  @IsDate()
   @IsNotEmpty()
   Data?: Date
 
