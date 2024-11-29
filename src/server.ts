@@ -16,7 +16,7 @@ app.use('/apiserver', routes); // Define o prefixo para as rotas
 app.get('/apidengue/', async (req, res) => {
     try {
         // Fazendo a solicitação para a API
-        const apiRes = await axios.get('https://info.dengue.mat.br/api/alertcity/?geocode=3520509&disease=dengue&format=json&ew_start=16&ey_start=2023&ew_end=17&ey_end=2024');
+        const apiRes = await axios.get('https://info.dengue.mat.br/api/alertcity/?geocode=3520509&disease=dengue&format=json&ew_start=48&ey_start=2023&ew_end=48&ey_end=2024');
 
         // Enviando a resposta da API de volta ao cliente
         res.json(apiRes.data);
