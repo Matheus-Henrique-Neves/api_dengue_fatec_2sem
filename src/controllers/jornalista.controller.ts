@@ -8,6 +8,7 @@ export const createJornalista = async (req: Request, res: Response) => {
   } catch (error) {
     if ((error as Error).message === 'Usuário já existe') return res.status(400).json({ "message": "usuario ja existe"  }) // Retorna um erro  
     return res.status(400).json({ message: error }) // Retorna um erro
+    
   }
 }
 
