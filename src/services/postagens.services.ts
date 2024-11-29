@@ -12,6 +12,7 @@ export const findPostagemByIdService = async (ID: number) => {
   const postagem = await findPostagemById(ID) // Busca uma postagem pelo id
 
   if (!postagem) {
+    
     throw new Error('Postagem não encontrada') // Se a postagem não existir, lança um erro
   }
 

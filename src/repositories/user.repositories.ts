@@ -4,6 +4,7 @@ import User from '../entities/user.entities' // Importa o modelo de usuário
 export const createUser = async (data: CreateUserDto) => {
   const newUser = await User.create({ data }) // Cria um novo usuário
   return { ...newUser, Senha: undefined } // Remove a senha do usuário antes de retornar
+  
 }
 
 export const findAllUsers = async () => {

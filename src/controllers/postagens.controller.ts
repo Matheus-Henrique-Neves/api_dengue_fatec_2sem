@@ -7,6 +7,7 @@ export const createPostagem = async (req: Request, res: Response) => {
     return res.status(201).json(postagem) // Retorna a postagem criada
   } catch (error) {
     return res.status(400).json({ message: (error as Error).message }) // Retorna um erro
+    
   }
 }
 

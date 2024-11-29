@@ -12,4 +12,5 @@ router.get('/:id', asyncHandler(findPostagemById)) // Define a rota para buscar 
 router.patch('/:id', asyncHandler(validate(CreatePostagemDto)), asyncHandler(updatePostagem)) // Define a rota para atualizar uma postagem
 router.delete('/:id', asyncHandler(deletePostagem)) // Define a rota para deletar uma postagem
 
+
 export default router
